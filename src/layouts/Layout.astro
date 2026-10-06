@@ -1,0 +1,380 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Growing together" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
+
+    <!-- Initialize Netlify Identity -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-container">
+        <!-- Logo -->
+        <a href="/" class="logo"> 🌱 Allotment </a>
+
+        <!-- Hamburger Button (Mobiles Only) -->
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="nav" id="navMenu">
+          <a href="/about" class="nav-link">About</a>
+          <a href="/location" class="nav-link">Location</a>
+          <a href="/plots" class="nav-link">Our Plots</a>
+          <a href="/gallery" class="nav-link">Gallery</a>
+          <a href="/news" class="nav-link">News</a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100080927293467"
+            class="nav-facebook"
+            target="_blank"
+          >
+            Facebook
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p>
+          &copy; 2026 Frodsham Townfield Allotments. All things grow in their
+          time.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle - Enhanced for mobile reliability
+      function initializeMenu() {
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        if (!menuToggle || !navMenu) {
+          console.warn("Menu elements not found");
+          return;
+        }
+
+        // Toggle menu on hamburger click
+        menuToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          const isOpen = navMenu.classList.contains("active");
+          
+          if (isOpen) {
+            navMenu.classList.remove("active");
+            menuToggle.classList.remove("active");
+          } else {
+            navMenu.classList.add("active");
+            menuToggle.classList.add("active");
+          }
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = document.querySelectorAll(".nav-link, .nav-facebook");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            menuToggle.classList.remove("active");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+          const isClickInside = navMenu.contains(e.target) || menuToggle.contains(e.target);
+          if (!isClickInside && navMenu.classList.contains("active")) {
+            navMenu.classList.remove("active");
+            menuToggle.classList.remove("active");
+          }
+        });
+      }
+
+      // Initialize menu when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeMenu);
+      } else {
+        initializeMenu();
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-neutral);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background-color: var(--color-neutral);
+    border-bottom: 2px solid var(--color-accent-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .logo:hover {
+    color: var(--color-accent);
+  }
+
+  /* HAMBURGER MENU */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 6px;
+    z-index: 101;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* NAVIGATION */
+  .nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-facebook {
+    color: white;
+    background-color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .nav-facebook:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(127, 166, 109, 0.3);
+  }
+
+  /* MAIN */
+  main {
+    flex: 1;
+    background-color: var(--color-neutral);
+  }
+
+  /* FOOTER */
+  .footer {
+    background-color: var(--color-primary-dark);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 1rem;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+    }
+
+    /* Show hamburger on mobile */
+    .hamburger {
+      display: flex;
+    }
+
+    /* Hide nav by default on mobile */
+    .nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0;
+      background-color: var(--color-neutral);
+      border-bottom: 2px solid var(--color-accent-light);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Show nav when active */
+    .nav.active {
+      padding: 1.5rem;
+      max-height: 600px;
+    }
+
+    .nav-link {
+      width: 100%;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+
+    .nav-link:hover {
+      color: var(--color-accent);
+      padding-left: 1rem;
+    }
+
+    .nav-facebook {
+      width: 100%;
+      text-align: center;
+      border: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-container {
+      padding: 1rem 0.75rem;
+    }
+
+    .logo {
+      font-size: 1rem;
+    }
+  }
+</style>

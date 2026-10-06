@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const galleries = await getCollection("galleries");
+
+// For each gallery, count images in its folder
+const galleryWithImages = await Promise.all(
+  galleries.map(async (gallery) => {
+    const folderId = gallery.data.folderId;
+    
+    // Get all images in this gallery's folder
+    const imageModules = import.meta.glob(
+      "/public/images/**/*.{png,jpg,jpeg,gif,webp}",
+      { eager: true }
+    );
+
+    const images = Object.entries(imageModules)
+      .filter(([path]) => path.includes(`/public/images/${folderId}/`))
+      .map(([path]) => ({
+        src: path.replace(/^\/public/, ""), // Convert /public/images/tests/001.jpg to /images/tests/001.jpg
+      }));
+
+    return {
+      ...gallery,
+      imageCount: images.length,
+      firstImage: images[0]?.src,
+    };
+  })
+);
+
+// Filter to only galleries with images and sort by date (newest first)
+const displayGalleries = galleryWithImages
+  .filter((g) => g.imageCount > 0)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<Layout title="Gallery - Frodsham Townfield Allotments">
+  <section style="background-color: var(--color-neutral); padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <h2 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);">
+        Photo Collections
+      </h2>
+
+      {displayGalleries.length > 0 ? (
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);">
+          {displayGalleries.map((gallery) => (
+            <a
+              href={`/gallery/${gallery.data.slug}`}
+              style="text-decoration: none; display: block; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background-color: white;"
+              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'"
+            >
+              <div style="position: relative; overflow: hidden; height: 200px; background: var(--color-neutral);">
+                {gallery.firstImage && (
+                  <img
+                    src={gallery.firstImage}
+                    alt={gallery.data.title}
+                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; display: block;"
+                  />
+                )}
+              </div>
+              <div style="padding: var(--spacing-lg);">
+                <h3 style="color: var(--color-primary); margin: 0 0 var(--spacing-sm) 0;">
+                  {gallery.data.title}
+                </h3>
+                <p style="color: var(--color-text); margin: 0 0 var(--spacing-sm) 0; line-height: 1.5; font-size: 0.95rem;">
+                  {gallery.data.description}
+                </p>
+                <p style="color: var(--color-accent); margin: 0; font-size: 0.9rem; font-weight: 600;">
+                  {gallery.imageCount} {gallery.imageCount === 1 ? "photo" : "photos"}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div style="text-align: center; padding: var(--spacing-2xl); background: white; border-radius: var(--radius-lg);">
+          <p style="color: var(--color-text);">
+            No galleries yet. Add folders to <code style="background: #f0f0f0; padding: 2px 6px;">public/images/</code> and create gallery entries in the CMS.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+  </style>
+</Layout>

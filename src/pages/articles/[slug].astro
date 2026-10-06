@@ -1,0 +1,130 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+// Get all articles for static generation
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: any;
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+---
+
+<Layout title={article.data.title}>
+  <article class="article-page">
+    <div class="container">
+      <header class="article-header">
+        <a href="/" class="back-link">← Back to home</a>
+        <h1>{article.data.title}</h1>
+        <div class="article-meta">
+          {
+            article.data.date.toLocaleDateString("en-GB", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </div>
+      </header>
+
+      <div class="article-content">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .article-page {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .article-header {
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .back-link {
+    color: var(--color-accent);
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+    transition: var(--transition);
+  }
+
+  .back-link:hover {
+    color: var(--color-primary);
+    transform: translateX(-4px);
+  }
+
+  h1 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .article-meta {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .article-content {
+    max-width: 700px;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content :global(h2) {
+    color: var(--color-primary);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+    font-size: 1.5rem;
+  }
+
+  .article-content :global(h3) {
+    color: var(--color-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+    font-size: 1.25rem;
+  }
+
+  .article-content :global(p) {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .article-content :global(ul),
+  .article-content :global(ol) {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .article-content :global(li) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article-content :global(blockquote) {
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    font-style: italic;
+    color: var(--color-text);
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .article-page {
+      padding: var(--spacing-xl) 0;
+    }
+  }
+</style>

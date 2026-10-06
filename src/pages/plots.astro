@@ -1,0 +1,156 @@
+---
+// Import the layout
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Plot Information - Frodsham Townfield Allotments">
+
+  <!-- PLOT SIZES -->
+  <section style="background: linear-gradient(135deg, var(--color-neutral) 0%, var(--color-accent-light) 100%); padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);">
+          Plot Information & Pricing
+        </h2>
+        <p style="color: var(--color-text); text-align: center; font-size: 1.1rem; margin-bottom: var(--spacing-xl);">
+          There are 78 plots on site
+        </p>
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);"
+        >
+          <div
+            class="card"
+            style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"
+          >
+            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Full Plots</h3>
+            <p style="color: var(--color-text); margin: 0; line-height: 1.7;">
+              14m x 8.2m<br />
+              <strong>£275.00 per year</strong>
+            </p>
+          </div>
+          <div
+            class="card"
+            style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"
+          >
+            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Half Plots</h3>
+            <p style="color: var(--color-text); margin: 0; line-height: 1.7;">
+              14m x 4.1m<br />
+              <strong>£137.50 per year</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITING LIST -->
+  <section style="background-color: var(--color-neutral); padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div
+          style="background-color: #ffffff; padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-terracotta);"
+        >
+          <h2 style="color: var(--color-primary); margin-top: 0; margin-bottom: var(--spacing-md);">Waiting List CLOSED</h2>
+          <p style="color: var(--color-text); line-height: 1.8; margin-bottom: var(--spacing-md);">
+            We receive an incredible number of enquiries. To manage this, we've closed our waiting list for now.
+          </p>
+          <p style="color: var(--color-text); line-height: 1.8;">
+            Those already on the list will be contacted in order when plots become available.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section style="background-color: #ffffff; padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <h2 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);">Frequently Asked Questions</h2>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);"
+      >
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">WHAT CAN I GROW?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Anything! Fruit, vegetables, flowers and fruit trees.</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">CAN I HAVE BARBECUES?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Definitely yes!</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">IS THERE A TENANCY AGREEMENT?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Yes, there is a simple agreement to sign.</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">TOILETS?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Most allotments have no facilities. We're exploring composting solutions.</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">ARE THERE RULES?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Yes. Restrictions on bonfires, cockerels, hoses. See Agreement for details.</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">RAISED BEDS?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Yes, for easier access.</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">FENCING?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">You can fence your plot with chicken wire.</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">CHILDREN?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Welcome on the site!</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">RUBBISH?</h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.7;">Take it home. Only compostable waste on site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+
+    .card {
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--spacing-md);
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 var(--spacing-sm);
+      }
+
+      div[style*="display: flex"] {
+        flex-direction: column !important;
+      }
+
+      div[style*="display: flex"] a {
+        width: 100% !important;
+      }
+    }
+  </style>
+</Layout>

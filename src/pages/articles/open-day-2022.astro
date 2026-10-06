@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import header from '../../images/openday22/003.jpg'
+import scarecrow from '../../images/openday22/004.jpg'
+import image1 from '../../images/openday22/000.jpg'
+import image2 from '../../images/openday22/001.jpg'
+import image3 from '../../images/openday22/002.jpg'
+---
+
+<Layout title="Allotment Open Day – 2nd July 2022 | Townfield Allotments">
+	<!-- ============================================================
+       HERO SECTION - Event Header
+       ============================================================ -->
+	<section class="hero" style="background: linear-gradient(135deg, var(--color-neutral) 0%, var(--color-accent-light) 100%);">
+		<div class="container">
+			<div style="text-align: center;">
+				<p style="color: var(--color-text-secondary); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--spacing-sm); font-weight: 600;">📅 Past Event • 2nd July 2022</p>
+				<h1 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Allotment Open Day</h1>
+				<p style="color: var(--color-text); font-size: 1.1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">A day of community, creativity, and delicious treats.</p>
+			</div>
+			<img src={header.src} alt="Frodsham Townfield Allotments - Super Worm scarecrow" style="max-width: 100%; height: auto;" />
+		</div>
+	</section>
+
+	<!-- ============================================================
+       MAIN EVENT SUMMARY
+       ============================================================ -->
+	<section style="background-color: #ffffff; padding: var(--spacing-2xl) 0;">
+		<div class="container">
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-text); margin-bottom: var(--spacing-lg);">This past weekend, our allotment was buzzing with life as we hosted our much-anticipated Annual Open Day. With the weather staying dry and interspersed with moments of sunshine - it was the perfect setting for a day of community, creativity, and, delicious treats.</p>
+
+				<div style="display: grid; grid-template-columns: 45% 53%; gap: 2%;">
+					<div>
+						<img src={image1.src} alt="Group of people sitting down chatting" style="max-width: 100%; height: auto; margin-bottom: var(--spacing-sm);" />
+						<img src={image2.src} alt="Children gardening in allotment" style="max-width: 100%; height: auto;" />
+					</div>
+					<div><img src={image3.src} alt="Children digging in mud" style="max-width: 100%; height: auto;" /></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================================
+       ACTIVITY HIGHLIGHTS - Feature Cards
+       ============================================================ -->
+	<section style="background-color: var(--color-neutral); padding: var(--spacing-2xl) 0;">
+		<div class="container">
+			<h2 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);">What Made the Day Special</h2>
+
+			<!-- Raffle -->
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+				<div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+					<div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">🎫</div>
+					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Exciting Raffle and Generous Prizes</h3>
+					<p style="color: var(--color-text); margin: 0; line-height: 1.7;">The raffle was another big draw! Thanks to the generosity of local businesses and our community members, we had a wide range of fantastic prizes up for grabs. The raffle money raised will go towards maintaining Townfield Allotments and supporting future events for the community.</p>
+				</div>
+
+				<!-- Cake Station -->
+				<div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+					<div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">🎂</div>
+					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Sweet Treats & Savoury Bites</h3>
+					<p style="color: var(--color-text); margin-bottom: var(--spacing-lg); line-height: 1.7;">The cake stall was a hit and had sold out before the end! We have some talented bakers among us!</p>
+					<p style="color: var(--color-text); margin-bottom: var(--spacing-lg); line-height: 1.7;">Over at the ever popular BBQ, the demand was high and the grilling team did a fantastic job powering through it all with a smile.</p>
+					<p style="color: var(--color-text); margin: 0; line-height: 1.7;">Paired with a cup of hot tea or coffee, it was the perfect way to relax and enjoy the surroundings.</p>
+				</div>
+
+				<!-- Kiddies Corner -->
+				<div class="card" style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+					<div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">👧</div>
+					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">A Day of Community and Connection</h3>
+					<p style="color: var(--color-text); margin: 0; line-height: 1.7;">What truly made the day special was the sense of community.. It was wonderful to see so many people—long-time members, new plot holders, and visitors—coming together to celebrate our shared love of growing, nature, and the outdoors. There was much swapping of tips, sharing of stories, and admiring of each other's plots.</p>
+				</div>
+			</div>
+
+			<!-- Scarecrow Trail - Featured -->
+			<div style="background: white; border: 2px solid var(--color-terracotta); border-top: 4px solid var(--color-terracotta); border-radius: var(--radius-lg); padding: var(--spacing-lg); box-shadow: 0 8px 24px rgba(193, 114, 79, 0.15); margin-bottom: var(--spacing-xl)">
+				<!-- Main layout: Content left, Image right -->
+				<div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--spacing-xl); align-items: start;">
+					<!-- Left side: Content -->
+					<div style="display: grid; grid-template-columns: 80px 1fr; gap: var(--spacing-lg); align-items: start;">
+						<!-- Emoji -->
+						<div style="font-size: 3.5rem; line-height: 1;">🌻</div>
+
+						<!-- Text content -->
+						<div>
+							<div style="display: inline-block; background-color: var(--color-terracotta); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: var(--spacing-sm);">⭐ HIGHLIGHT</div>
+							<h3 style="color: var(--color-primary); margin: var(--spacing-sm) 0;">A Scarecrow Trail to Remember</h3>
+							<p style="color: var(--color-text); line-height: 1.7; margin-bottom: var(--spacing-lg);"><strong>This year marked the debut of our Scarecrow Trail</strong>, and our members truly rose to the occasion, creating an incredible assortment of scarecrows that were as imaginative as they were entertaining. From dinosaurs to Tin Man, Super Worm to Jürgen Klopp - there were many delightful characters to discover.</p>
+							<p style="color: var(--color-text); line-height: 1.7; margin: 0;">Children (and quite a few adults!) had a fantastic time exploring the allotments, trying to solve the scarecrow's anagram! The excitement on the kids’ faces as they completed the trail and received their well-earned sweet (or two!) was lovely to see. It was a fantastic start for what we hope will become a fun-filled tradition for years to come.</p>
+						</div>
+					</div>
+
+					<!-- Right side: Image -->
+					<div>
+						<img src={scarecrow.src} alt="Scarecrow Trail - gentleman scarecrow" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);" />
+					</div>
+				</div>
+			</div>
+
+			<div style="background-color: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-accent); margin-bottom: var(--spacing-xl);">
+				<p style="margin: 0; color: var(--color-text);">
+					<strong style="color: var(--color-primary);">A huge thank you to everyone who contributed</strong> Whether you did the heavy lifting, baked a cake, crafted a scarecrow, donated a raffle prize, or simply came along to enjoy the day - we couldn't have done it without you - reminding us all why our allotment is such a special place.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 var(--spacing-lg);
+		}
+
+		.card {
+			transition: var(--transition);
+		}
+
+		.card:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-md);
+		}
+
+		/* Responsive featured section with image */
+		@media (max-width: 960px) {
+			div[style*='grid-template-columns: 1fr 300px'] {
+				grid-template-columns: 1fr 250px !important;
+				gap: var(--spacing-lg) !important;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.container {
+				padding: 0 var(--spacing-md);
+			}
+
+			h2 {
+				font-size: 1.75rem;
+			}
+
+			h3 {
+				font-size: 1.25rem;
+			}
+
+			div[style*='grid-template-columns: 1fr 300px'] {
+				grid-template-columns: 1fr !important;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.container {
+				padding: 0 var(--spacing-sm);
+			}
+
+			div[style*='display: flex'] {
+				flex-direction: column !important;
+			}
+
+			div[style*='display: flex'] a {
+				width: 100% !important;
+			}
+		}
+	</style>
+</Layout>

@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Community Allotment - Growing Together">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Where Seeds Become Stories</h1>
+        <p class="hero-subtitle">A thriving community garden. Grow your own vegetables, learn from neighbors, and watch things flourish.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="growing-chart">
+          <div class="bar" style="height: 30%;"></div>
+          <div class="bar" style="height: 45%;"></div>
+          <div class="bar" style="height: 60%;"></div>
+          <div class="bar" style="height: 75%;"></div>
+          <div class="bar" style="height: 90%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2>What We're Growing</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="icon">🥕</div>
+          <h3>Fresh Produce</h3>
+          <p>Grow what you love to eat, harvest at peak ripeness, and enjoy the difference real food makes.</p>
+        </div>
+        <div class="about-card">
+          <div class="icon">🤝</div>
+          <h3>Community</h3>
+          <p>Share tips, seeds, and stories. Learn from experienced gardeners and help newcomers grow.</p>
+        </div>
+        <div class="about-card">
+          <div class="icon">🌍</div>
+          <h3>Sustainability</h3>
+          <p>Reduce food miles, support biodiversity, and grow with the seasons for a greener future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plots Section -->
+  <section class="plots" id="plots">
+    <div class="container">
+      <h2>Our Plots</h2>
+      <p class="section-intro">From beginners to seasoned growers, we have space for everyone.</p>
+      
+      <div class="plots-grid">
+        <div class="plot-card">
+          <div class="plot-size">Standard</div>
+          <h3>Raised Bed</h3>
+          <p class="plot-desc">Perfect for beginners and families</p>
+          <ul class="plot-features">
+            <li>2m × 1m bed</li>
+            <li>Water access</li>
+            <li>Tool storage</li>
+            <li>Compost included</li>
+          </ul>
+          <p class="plot-price">£25/year</p>
+        </div>
+
+        <div class="plot-card featured">
+          <div class="plot-size">Popular</div>
+          <h3>Full Plot</h3>
+          <p class="plot-desc">Most popular choice</p>
+          <ul class="plot-features">
+            <li>5m × 3m space</li>
+            <li>Water access</li>
+            <li>Tool shed access</li>
+            <li>Compost bin</li>
+            <li>Weekly workshops</li>
+          </ul>
+          <p class="plot-price">£50/year</p>
+        </div>
+
+        <div class="plot-card">
+          <div class="plot-size">Large</div>
+          <h3>Family Plot</h3>
+          <p class="plot-desc">For the serious grower</p>
+          <ul class="plot-features">
+            <li>10m × 4m space</li>
+            <li>Priority water</li>
+            <li>Tool shed access</li>
+            <li>Compost + manure</li>
+            <li>Mentorship program</li>
+          </ul>
+          <p class="plot-price">£85/year</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News & Updates Section -->
+  <section class="news" id="news">
+    <div class="container">
+      <h2>Latest News</h2>
+      <p class="section-intro">Updates from the allotment community</p>
+
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-icon">🌿</div>
+          <div class="news-meta">March 15, 2024</div>
+          <h3>Spring Open Day - A Success!</h3>
+          <p>Over 50 visitors joined us for our spring celebration. We hosted composting demonstrations, a plant swap, and welcomed gardeners of all levels to explore our community. Thanks to all volunteers!</p>
+        </div>
+
+        <div class="news-card">
+          <div class="news-icon">💧</div>
+          <div class="news-meta">March 8, 2024</div>
+          <h3>New Water System Installed</h3>
+          <p>We've upgraded with automated irrigation and smart timers. The new system reduces water waste by 40% while ensuring consistent watering during dry spells. Thanks to generous local donations!</p>
+        </div>
+
+        <div class="news-card">
+          <div class="news-icon">🦋</div>
+          <div class="news-meta">February 28, 2024</div>
+          <h3>Wildlife Survey Complete</h3>
+          <p>Spring survey reveals thriving bee populations and even spotted a rare nuthatch! Our diverse plantings are creating perfect habitats for local wildlife. Conservation is thriving here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="tips">
+    <div class="container">
+      <h2>This Month's Guide</h2>
+      <div class="tips-grid">
+        <article class="tip-card">
+          <h4>🌱 Plant Now</h4>
+          <p><strong>Summer vegetables:</strong> Courgettes, runner beans, tomatoes. Plant seedlings now for late-summer harvests.</p>
+        </article>
+        <article class="tip-card">
+          <h4>💧 Water Well</h4>
+          <p><strong>Early morning is best:</strong> Water at dawn to reduce evaporation and help roots absorb moisture efficiently.</p>
+        </article>
+        <article class="tip-card">
+          <h4>🦋 Support Wildlife</h4>
+          <p><strong>Plant flowers between rows:</strong> Sunflowers and calendula attract pollinators and natural pest controllers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Override global for home page specific styles if needed */
+  .step-number {
+    background: var(--color-accent);
+    color: white;
+  }
+</style>

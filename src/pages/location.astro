@@ -1,0 +1,225 @@
+---
+// Import the layout
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Location – Frodsham Townfield Allotments">
+  <!-- HERO SECTION -->
+  <section
+    class="hero"
+    style="background: linear-gradient(135deg, var(--color-neutral) 0%, var(--color-accent-light) 100%);"
+  >
+    <div class="container">
+      <div style="text-align: center;">
+        <h1
+          style="color: var(--color-primary); margin-bottom: var(--spacing-md);"
+        >
+          Location – How to find us
+        </h1>
+        <p
+          style="color: var(--color-text); font-size: 1.1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;"
+        >
+          Situated on the edge of Frodsham, between Langdale Way & Townfield
+          Lane
+        </p>
+      </div>
+      <div style="max-width: 900px; margin: 0 auto;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2193.6367614420146!2d-2.712234074752336!3d53.295255312899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTPCsDE3JzQzLjEiTiAywrA0Mic0Mi4xIlc!5e1!3m2!1sen!2sus!4v1784645565789!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style="border: 2px solid var(--color-border); border-radius: var(--radius-lg);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION INFO CARDS -->
+  <section
+    style="background-color: var(--color-neutral); padding: var(--spacing-2xl) 0;"
+  >
+    <div class="container">
+      <h2
+        style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);"
+      >
+        Find Us Here
+      </h2>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);"
+      >
+        <!-- Address Card -->
+        <div
+          class="card"
+          style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"
+        >
+          <div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">
+            📍
+          </div>
+          <h3
+            style="color: var(--color-primary); margin-bottom: var(--spacing-md);"
+          >
+            Address
+          </h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.8;">
+            Langdale Way & Townfield Lane<br />
+            Frodsham<br />
+            Cheshire<br />
+            WA6 7LX<br />
+            United Kingdom
+          </p>
+        </div>
+
+        <!-- What3Words Card -->
+        <div
+          class="card"
+          style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"
+        >
+          <div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">
+            🗺️
+          </div>
+          <h3
+            style="color: var(--color-primary); margin-bottom: var(--spacing-md);"
+          >
+            What3Words
+          </h3>
+          <p
+            style="color: var(--color-text); margin-bottom: var(--spacing-md);"
+          >
+            Three word location for the gate entrance:
+          </p>
+          <a
+            href="https://what3words.com/tunnel.apples.counts"
+            target="_blank"
+            style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 1.1rem;"
+          >
+            ///tunnel.apples.counts
+          </a>
+        </div>
+
+        <!-- Parking Card -->
+        <div
+          class="card"
+          style="border: 2px solid var(--color-border); border-top: 4px solid var(--color-accent); background: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"
+        >
+          <div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">
+            🅿️
+          </div>
+          <h3
+            style="color: var(--color-primary); margin-bottom: var(--spacing-md);"
+          >
+            Parking
+          </h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.8;">
+            Free on-site parking is available for visitors. Please park
+            considerately and use designated areas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS INFO SECTION -->
+  <section style="background-color: #ffffff; padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2
+          style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);"
+        >
+          Getting Here
+        </h2>
+
+        <div
+          style="background-color: var(--color-neutral); padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-accent); margin-bottom: var(--spacing-xl);"
+        >
+          <h3
+            style="color: var(--color-primary); margin-top: 0; margin-bottom: var(--spacing-md);"
+          >
+            By Car
+          </h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.8;">
+            From Frodsham town centre, head towards the A56. Follow signs for
+            Langdale Way. The allotments entrance is on the corner of Langdale
+            Way and Townfield Lane. Turn in and follow the track to the car
+            park.
+          </p>
+        </div>
+
+        <div
+          style="background-color: var(--color-neutral); padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-accent); margin-bottom: var(--spacing-xl);"
+        >
+          <h3
+            style="color: var(--color-primary); margin-top: 0; margin-bottom: var(--spacing-md);"
+          >
+            By Bus
+          </h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.8;">
+            Several local bus routes serve Frodsham. Check local transport
+            information for routes that pass near Langdale Way.
+          </p>
+        </div>
+
+        <div
+          style="background-color: var(--color-neutral); padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-accent);"
+        >
+          <h3
+            style="color: var(--color-primary); margin-top: 0; margin-bottom: var(--spacing-md);"
+          >
+            On Foot
+          </h3>
+          <p style="color: var(--color-text); margin: 0; line-height: 1.8;">
+            The site is accessible on foot from Frodsham town centre. Follow the
+            path towards Langdale Way for approximately 15-20 minutes from the
+            high street.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+
+    .card {
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--spacing-md);
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 var(--spacing-sm);
+      }
+
+      div[style*="display: flex"] {
+        flex-direction: column !important;
+      }
+
+      div[style*="display: flex"] a {
+        width: 100% !important;
+      }
+    }
+  </style>
+</Layout>

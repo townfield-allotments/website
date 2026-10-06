@@ -1,0 +1,114 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import header from "../../images/openday24/000.jpg";
+import scarecrow from "../../images/openday24/001.jpg";
+---
+
+<Layout title="Allotment Open Day – 18th July 2026 | Townfield Allotments">
+  <!-- ============================================================
+       HERO SECTION - Event Header
+       ============================================================ -->
+  <section
+    class="hero"
+    style="background: linear-gradient(135deg, var(--color-neutral) 0%, var(--color-accent-light) 100%);"
+  >
+    <div class="container">
+      <div style="text-align: center;">
+        <p
+          style="color: var(--color-text-secondary); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--spacing-sm); font-weight: 600;"
+        >
+          📅 Past Event • 18th July 2026
+        </p>
+        <h1
+          style="color: var(--color-primary); margin-bottom: var(--spacing-md);"
+        >
+          Allotment Open Day
+        </h1>
+        <p
+          style="color: var(--color-text); font-size: 1.1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;"
+        >
+          A day of celebration, community, and sunshine
+        </p>
+      </div>
+      <img
+        src={header.src}
+        alt="Frodsham Townfield Allotments"
+        style="max-width: 100%; height: auto;"
+      />
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN EVENT SUMMARY
+       ============================================================ -->
+  <section style="background-color: #ffffff; padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <p
+          style="font-size: 1.1rem; line-height: 1.8; text-align: center; color: var(--color-text); margin-bottom: var(--spacing-lg);"
+        >
+          Full Write currently Growing <br /><span style="font-size: 5rem;"
+            >🪴</span
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+
+    .card {
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Responsive featured section with image */
+    @media (max-width: 960px) {
+      div[style*="grid-template-columns: 1fr 300px"] {
+        grid-template-columns: 1fr 250px !important;
+        gap: var(--spacing-lg) !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--spacing-md);
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      div[style*="grid-template-columns: 1fr 300px"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 var(--spacing-sm);
+      }
+
+      div[style*="display: flex"] {
+        flex-direction: column !important;
+      }
+
+      div[style*="display: flex"] a {
+        width: 100% !important;
+      }
+    }
+  </style>
+</Layout>

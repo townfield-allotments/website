@@ -1,0 +1,170 @@
+---
+// Import the layout
+import Layout from "../layouts/Layout.astro";
+import welcome from "../images/welcome.jpg";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+
+import { register } from "swiper/element/bundle";
+
+register();
+---
+
+<Layout title="Frodsham Townfield Allotments | Growing Together">
+    <section
+    class="hero"
+    style="background: linear-gradient(135deg, var(--color-neutral) 0%, var(--color-accent-light) 100%);"
+  >
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);">
+          Welcome to Frodsham Townfield Allotments
+        </h2>
+      <p style="color: var(--color-text); font-size: 1.1rem; text-align: center; line-height: 1.8; max-width: 700px; margin: 0 auto; margin-bottom: var(--spacing-xl);">
+        A thriving community of gardeners growing together
+      </p>
+      </div>
+      <div style="text-align: center;">
+        <img
+          src={welcome.src}
+          alt="Frodsham Townfield Allotments aerial view"
+          style="max-width: 100%; height: auto; border-radius: var(--radius-lg);"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section style="background-color: #ffffff; padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2
+          style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);"
+        >
+          Allotment Open Day
+        </h2>
+        <p
+          style="color: var(--color-text); font-size: 1.1rem; text-align: center; margin-bottom: var(--spacing-lg); font-weight: 600;"
+        >
+          📅 Saturday 18th July 2026 • 12pm–3pm 📍 <a
+            href="/location"
+            class="nav-link">Townfield Lane, Frodsham</a
+          >
+        </p>
+        <p
+          style="color: var(--color-text); line-height: 1.8; margin-bottom: var(--spacing-md);"
+        >
+          Come along and discover the wonderful community at Frodsham Townfield
+          Allotments! Whether you're an experienced gardener, interested in
+          growing vegetables, or simply looking for a fun family day out,
+          everyone is welcome.
+        </p>
+        <p
+          style="color: var(--color-text); line-height: 1.8; margin-bottom: var(--spacing-md);"
+        >
+          Explore the allotments, meet local growers, and enjoy fresh fruit and
+          vegetables, homemade cakes, honey from our bees, BBQ & refreshments,
+          live music, children's crafts & activities, a scarecrow trail, raffle,
+          and more!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ALLOTMENTS -->
+  <section
+    style="background-color: var(--color-neutral); padding: var(--spacing-2xl) 0;"
+  >
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2
+          style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);"
+        >
+          We Grow Together
+        </h2>
+        <p
+          style="color: var(--color-text); line-height: 1.8; margin-bottom: var(--spacing-lg);"
+        >
+          We use our plots for vegetable growing, keeping chickens and much more
+          – along the same lines as a traditional allotment. The half plot is
+          ideal for those squeezed for time, while a full plot is manageable for
+          starting out.
+        </p>
+        <p
+          style="color: var(--color-text); line-height: 1.8; margin-bottom: var(--spacing-lg);"
+        >
+          The plots are easily accessible in the field at the top of Langdale
+          Way on the junction with Townfield Lane. Grow Your Own is for everyone
+          these days! Nearly 50 plotholders of all ages – from families with
+          young children to pensioners – make this a truly inclusive community.
+        </p>
+        <p style="color: var(--color-text); line-height: 1.8;">
+          Frodsham Townfield Allotments are let by Atlantic Hardware. AFTA (The
+          Association of Frodsham Townfield Allotments) provides day-to-day
+          management and works to develop the site and community.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITING LIST -->
+  <section style="background-color: #ffffff; padding: var(--spacing-2xl) 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div
+          style="background-color: var(--color-neutral); padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-terracotta);"
+        >
+          <h2
+            style="color: var(--color-primary); margin-top: 0; margin-bottom: var(--spacing-md);"
+          >
+            Waiting List CLOSED
+          </h2>
+          <p
+            style="color: var(--color-text); line-height: 1.8; margin-bottom: var(--spacing-md);"
+          >
+            We receive an incredible number of enquiries from people hoping to
+            join our community. To manage this, we've decided to close our
+            waiting list to new enquiries for now.
+          </p>
+          <p style="color: var(--color-text); line-height: 1.8;">
+            Those already on the list will remain and will be contacted in order
+            when plots become available. We'll announce when we can reopen!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--spacing-md);
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 var(--spacing-sm);
+      }
+
+      div[style*="display: flex"] {
+        flex-direction: column !important;
+      }
+
+      div[style*="display: flex"] a {
+        width: 100% !important;
+      }
+    }
+  </style>
+</Layout>
