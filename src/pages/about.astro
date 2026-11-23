@@ -1,6 +1,7 @@
 ---
 // Import the layout
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import droneImage from "../images/drone.jpg";
 ---
 
@@ -39,9 +40,11 @@ import droneImage from "../images/drone.jpg";
         </p>
       </div>
       <div style="text-align: center;">
-        <img
-          src={droneImage.src}
+        <Image
+          src={droneImage}
           alt="Frodsham Townfield Allotments aerial view"
+          widths={[480, 800, 1200, 1600]}
+          sizes="(max-width: 800px) 100vw, 800px"
           style="max-width: 100%; height: auto; border-radius: var(--radius-lg);"
         />
       </div>

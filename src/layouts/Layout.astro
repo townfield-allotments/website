@@ -17,7 +17,12 @@ const { title, description = "Growing together" } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- is:inline keeps this as a normal script, so the mobile menu code
+         below never depends on Netlify's script loading successfully -->
+    <script
+      is:inline
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
 
     <!-- Initialize Netlify Identity -->
     <script>
