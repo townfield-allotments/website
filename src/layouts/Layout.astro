@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   title: string;
@@ -56,17 +57,19 @@ const { title, description = "Growing together" } = Astro.props;
 
         <!-- Navigation -->
         <nav class="nav" id="navMenu">
-          <a href="/about" class="nav-link">About</a>
-          <a href="/location" class="nav-link">Location</a>
-          <a href="/plots" class="nav-link">Our Plots</a>
-          <a href="/gallery" class="nav-link">Gallery</a>
-          <a href="/news" class="nav-link">News</a>
+          <a href="/about/" class="nav-link">About</a>
+          <a href="/location/" class="nav-link">Location</a>
+          <a href="/plot-information/" class="nav-link">Our Plots</a>
+          <a href="/gallery/" class="nav-link">Gallery</a>
+          <a href="/news/" class="nav-link">News</a>
           <a
             href="https://www.facebook.com/profile.php?id=100080927293467"
             class="nav-facebook"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
           >
-            Facebook
+            <Icon name="logos:facebook" />
           </a>
         </nav>
       </div>
@@ -376,5 +379,15 @@ const { title, description = "Growing together" } = Astro.props;
     .logo {
       font-size: 1rem;
     }
+  }
+
+  .nav-facebook {
+    background: none;
+    padding: 0;
+  }
+
+  .nav-facebook svg {
+    width: 1.75rem;
+    height: 1.75rem;
   }
 </style>
