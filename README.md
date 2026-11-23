@@ -51,7 +51,7 @@ npm install
 npm run dev
 ```
 
-Then visit `http://localhost:3000` in your browser.
+Then visit `http://localhost:4321` in your browser.
 
 ### 3. Deploy to Netlify
 

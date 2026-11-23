@@ -1,70 +1,40 @@
 ---
 // Import the layout
 import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+// "27th July 2026"
+const niceDate = (date: Date) => {
+	const day = date.getDate()
+	const suffix =
+		day % 10 === 1 && day !== 11 ? 'st'
+		: day % 10 === 2 && day !== 12 ? 'nd'
+		: day % 10 === 3 && day !== 13 ? 'rd'
+		: 'th'
+	return `${day}${suffix} ${date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}`
+}
+
+// Articles live in src/content/articles – newest first
+const articles = (await getCollection('articles'))
+	.map((article) => ({ ...article.data, slug: article.slug, date: new Date(article.data.date) }))
+	.sort((a, b) => b.date.getTime() - a.date.getTime())
 ---
 
 <Layout title="News - Frodsham Townfield Allotments">
 	<!-- Grid Section (Optional) -->
 	<section class="about-cards-section" style="background-color: var(--color-neutral); padding-top: var(--spacing-2xl);">
 		<div class="container">
-			<h1 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);">Catch Up on the Latest Goings On at the Allotments</h1>
+			<h2 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-xl);">Catch Up on the Latest Goings On at the Allotments</h2>
 			<div class="grid">
-				<div class="card about-card" style="border-top: 4px solid var(--color-accent); box-shadow: 0 2px 8px rgba(127, 166, 109, 0.08);">
-					<div style="font-size: 2rem; margin-bottom: var(--spacing-md);">🚜</div>
-					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Composting on Site - 27th July 2026</h3>
-					<p style="color: var(--color-text); margin: 0;">
-						Major upgrades to our on site compositng solution has begun… <a><a href=`/articles/composting-july`>Read More</a> </a>
-					</p>
-				</div>
-
-				<div class="card about-card" style="border-top: 4px solid var(--color-accent); box-shadow: 0 2px 8px rgba(127, 166, 109, 0.08);">
-					<div style="font-size: 2rem; margin-bottom: var(--spacing-md);">🥕</div>
-					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Allotment Open Day - 18th July 2026</h3>
-					<p style="color: var(--color-text); margin: 0;">
-						We couldn't have asked for a better day as our annual Allotment Day wrapped up summer with glorious weather and… <a href=`/articles/open-day-2026`>Read More</a>
-					</p>
-				</div>
-
-				<div class="card about-card" style="border-top: 4px solid var(--color-accent); box-shadow: 0 2px 8px rgba(127, 166, 109, 0.08);">
-					<div style="font-size: 2rem; margin-bottom: var(--spacing-md);">🌻</div>
-					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Allotment Open Day - 31st August 2024</h3>
-					<p style="color: var(--color-text); margin: 0;">
-						We couldn't have asked for a better day as our annual Allotment Day wrapped up summer with glorious weather and… <a href=`/articles/open-day-2024`>Read More</a>
-					</p>
-				</div>
-
-				<div class="card about-card" style="border-top: 4px solid var(--color-accent); box-shadow: 0 2px 8px rgba(127, 166, 109, 0.08);">
-					<div style="font-size: 2rem; margin-bottom: var(--spacing-md);">🌻</div>
-					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Allotment Open Day - 8th July 2023</h3>
-					<p style="color: var(--color-text); margin: 0;">
-						This past weekend, our allotment was alive with activity as we hosted our much-anticipated Annual Open Day.... <a href=`/articles/open-day-2023`>Read More</a>
-					</p>
-				</div>
-
-				<div class="card about-card" style="border-top: 4px solid var(--color-accent); box-shadow: 0 2px 8px rgba(127, 166, 109, 0.08);">
-					<div style="font-size: 2rem; margin-bottom: var(--spacing-md);">🌻</div>
-					<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Allotment Open Day - 2nd July 2022</h3>
-					<p style="color: var(--color-text); margin: 0;">
-						This past weekend, our allotment was buzzing with life as we hosted our much-anticipated Annual Open Day... <a href=`/articles/open-day-2022`>Read More</a>
-					</p>
-				</div>
-
-				<!-- <div
-          class="card about-card"
-          style="border-top: 4px solid var(--color-accent); box-shadow: 0 2px 8px rgba(127, 166, 109, 0.08);"
-        >
-          <div style="font-size: 2rem; margin-bottom: var(--spacing-md);">
-            🌍
-          </div>
-          <h3
-            style="color: var(--color-primary); margin-bottom: var(--spacing-md);"
-          >
-            Card Title 3
-          </h3>
-          <p style="color: var(--color-text); margin: 0;">
-            Card description or content explaining this feature
-          </p>
-        </div> -->
+				{articles.map((article) => (
+					<div class="card about-card" style="border-top: 4px solid var(--color-accent); box-shadow: 0 2px 8px rgba(127, 166, 109, 0.08);">
+						<div style="font-size: 2rem; margin-bottom: var(--spacing-md);">{article.emoji ?? '🌱'}</div>
+						<h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">{article.title} - {niceDate(article.date)}</h3>
+						<p style="color: var(--color-text); margin: 0;">
+							{article.excerpt} <a href={`/articles/${article.slug}`}>Read More</a>
+						</p>
+					</div>
+				))}
 			</div>
 		</div>
 

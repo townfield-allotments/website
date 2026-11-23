@@ -52,3 +52,108 @@ collections:
           required: true,
           hint: "URL slug (e.g., summer-photos)",
         }
+
+  - name: "recipes"
+    label: "Recipes"
+    label_singular: "Recipe"
+    folder: "src/content/recipes"
+    create: true
+    format: "yaml-frontmatter"
+    slug: "{{slug}}"
+    media_folder: "/public/images/recipes"
+    public_folder: "/images/recipes"
+    fields:
+      - { label: "Recipe Title", name: "title", widget: "string", required: true }
+      - { label: "Date Added", name: "date", widget: "datetime", required: true }
+      - {
+          label: "Short Description",
+          name: "description",
+          widget: "text",
+          required: true,
+          hint: "One or two sentences shown on the Recipes page",
+        }
+      - {
+          label: "Shared By",
+          name: "author",
+          widget: "string",
+          required: false,
+          hint: "Name and plot number, e.g. Hay, C11",
+        }
+      - { label: "Serves / Makes", name: "serves", widget: "string", required: false, hint: "A number (e.g. 4) shows as \"Serves 4\". Or write it out, e.g. Makes about 5 jars" }
+      - { label: "Time", name: "time", widget: "string", required: false, hint: "e.g. 45 minutes" }
+      - { label: "Photo", name: "image", widget: "image", required: false }
+      - {
+          label: "Ingredients",
+          name: "ingredients",
+          widget: "list",
+          field: { label: "Ingredient", name: "ingredient", widget: "string" },
+          hint: "One ingredient per line, e.g. 500g rhubarb",
+        }
+      - {
+          label: "Method",
+          name: "body",
+          widget: "markdown",
+          hint: "Use a numbered list for the steps. Add any tips at the end.",
+        }
+
+  - name: "articles"
+    label: "News Articles"
+    label_singular: "News Article"
+    folder: "src/content/articles"
+    create: true
+    format: "yaml-frontmatter"
+    slug: "{{slug}}"
+    media_folder: "/public/images/articles"
+    public_folder: "/images/articles"
+    fields:
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          required: true,
+          hint: "e.g. Allotment Open Day",
+        }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          date_format: "DD/MM/YYYY",
+          time_format: false,
+          required: true,
+          hint: "Date of the event or news. Newest articles show first on the News page.",
+        }
+      - {
+          label: "Emoji",
+          name: "emoji",
+          widget: "string",
+          required: false,
+          hint: "One emoji shown on the News page, e.g. 🌻",
+        }
+      - {
+          label: "Subtitle",
+          name: "subtitle",
+          widget: "string",
+          required: false,
+          hint: "Short line under the title, e.g. A day of celebration and community",
+        }
+      - {
+          label: "News Page Summary",
+          name: "excerpt",
+          widget: "text",
+          required: true,
+          hint: "One or two sentences shown on the News page before Read More",
+        }
+      - { label: "Header Photo", name: "image", widget: "image", required: false }
+      - {
+          label: "Header Photo Description",
+          name: "imageAlt",
+          widget: "string",
+          required: false,
+          hint: "Describe the photo for people using screen readers",
+        }
+      - {
+          label: "Article",
+          name: "body",
+          widget: "markdown",
+          hint: "Use Heading 2/3 for sections. Put photos side by side on one line to make a grid. A quote (>) becomes a highlighted box.",
+        }
